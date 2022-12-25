@@ -1,6 +1,6 @@
-package com.practice.Java.model;
+package com.practice.shop.model;
 
-import com.practice.Java.dao.DataSource;
+import com.practice.shop.dao.DataSource;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

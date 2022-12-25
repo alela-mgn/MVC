@@ -1,4 +1,4 @@
-package com.practice.Java.view;
+package com.practice.shop.view;
 
 public class Constants {
 

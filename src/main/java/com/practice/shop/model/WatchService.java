@@ -1,4 +1,4 @@
-package com.practice.Java.model;
+package com.practice.shop.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

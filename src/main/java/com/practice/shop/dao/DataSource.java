@@ -1,8 +1,8 @@
-package com.practice.Java.dao;
+package com.practice.shop.dao;
 
-import com.practice.Java.model.Color;
-import com.practice.Java.model.Type;
-import com.practice.Java.model.Watch;
+import com.practice.shop.model.Color;
+import com.practice.shop.model.Type;
+import com.practice.shop.model.Watch;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

@@ -1,23 +1,23 @@
-package com.practice.Java.controller;
+package com.practice.shop.controller;
 
-import com.practice.Java.model.Color;
-import com.practice.Java.model.Type;
-import com.practice.Java.model.Watch;
-import com.practice.Java.model.WatchService;
-import com.practice.Java.view.UserView;
+import com.practice.shop.model.Color;
+import com.practice.shop.model.Type;
+import com.practice.shop.model.Watch;
+import com.practice.shop.model.WatchService;
+import com.practice.shop.view.UserView;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-import static com.practice.Java.view.Constants.ADD_NEW_WATCHES_COMMAND;
-import static com.practice.Java.view.Constants.GET_SUM_PRICE_COMMAND;
-import static com.practice.Java.view.Constants.LIST_ALL_WATCHES_COMMAND;
-import static com.practice.Java.view.Constants.MAIN_MENU_MESSAGE;
-import static com.practice.Java.view.Constants.QUIT_COMMAND;
-import static com.practice.Java.view.Constants.SORT_BY_COLOR_COMMAND;
-import static com.practice.Java.view.Constants.SORT_BY_DATE_COMMAND;
-import static com.practice.Java.view.Constants.SORT_BY_PRICE_COMMAND;
+import static com.practice.shop.view.Constants.ADD_NEW_WATCHES_COMMAND;
+import static com.practice.shop.view.Constants.GET_SUM_PRICE_COMMAND;
+import static com.practice.shop.view.Constants.LIST_ALL_WATCHES_COMMAND;
+import static com.practice.shop.view.Constants.MAIN_MENU_MESSAGE;
+import static com.practice.shop.view.Constants.QUIT_COMMAND;
+import static com.practice.shop.view.Constants.SORT_BY_COLOR_COMMAND;
+import static com.practice.shop.view.Constants.SORT_BY_DATE_COMMAND;
+import static com.practice.shop.view.Constants.SORT_BY_PRICE_COMMAND;
 
 public class Controller {
     private final UserView view;
