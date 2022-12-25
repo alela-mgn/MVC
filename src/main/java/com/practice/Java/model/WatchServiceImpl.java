@@ -5,16 +5,16 @@ import com.practice.Java.dao.DataSource;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class WatchServiceImpl implements WatchService {
-    private final DataSource dataSource = DataSource.getInstance();
-    private final List<Watch> watches = dataSource.getWatch();
+    private final List<Watch> watches = DataSource.getInstance().getWatch();
 
     @Override
     public List<Watch> getAllWatch() {
-        return watches;
+        return Collections.unmodifiableList(watches);
     }
 
     @Override
@@ -46,7 +46,6 @@ public class WatchServiceImpl implements WatchService {
 
     @Override
     public void addWatch(Color color, BigDecimal price, LocalDate date, Type type) {
-        List<Watch> watches = dataSource.getWatch();
         watches.add(new Watch(color, price, date, type));
     }
 }
