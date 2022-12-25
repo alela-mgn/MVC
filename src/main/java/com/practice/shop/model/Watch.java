@@ -1,47 +1,50 @@
-package com.practice.Java.model;
+package com.practice.shop.model;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class Watch {
-    private String color;
-    private int price;
-    private String date;
-    private String type;
+    private Color color;
+    private BigDecimal price;
+    private LocalDate date;
+    private Type type;
 
-    public Watch(String color, int price, String date, String type) {
+    public Watch(Color color, BigDecimal price, LocalDate date, Type type) {
         this.color = color;
         this.price = price;
         this.date = date;
         this.type = type;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
