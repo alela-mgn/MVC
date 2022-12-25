@@ -1,43 +1,63 @@
 package com.practice.Java.controller;
 
-import com.practice.Java.model.MainModel;
+import com.practice.Java.model.Color;
+import com.practice.Java.model.Type;
+import com.practice.Java.model.Watch;
+import com.practice.Java.model.WatchServiceImpl;
+import com.practice.Java.view.UserView;
 
-import java.util.Scanner;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+
+import static com.practice.Java.view.Constants.*;
 
 public class Controller {
-    public void addNewWatch() {
-        MainModel mainModel = new MainModel();
-        Scanner scanner = new Scanner(System.in);
-        String color = scanner.nextLine();
-        int price = scanner.nextInt();
-        String string = scanner.nextLine();
-        String date = scanner.nextLine();
-        String type = scanner.nextLine();
-        mainModel.addWatch(color, price, date, type);
-        mainModel.getAllWatch();
+    private final UserView view;
+    private final WatchServiceImpl model;
+
+    public Controller(UserView view, WatchServiceImpl mainModel) {
+        this.view = view;
+        this.model = mainModel;
     }
 
-    public void keyboardReading() {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        MainModel mainModel = new MainModel();
-        Controller controller = new Controller();
-        while (!input.equals("quit")) {
-            if (input.equals("1")) {
-                mainModel.getAllWatch();
-            } else if (input.equals("2")) {
-                mainModel.sortByPrice();
-            } else if (input.equals("3")) {
-                mainModel.sortByColor();
-            } else if (input.equals("4")) {
-                mainModel.sortByDate();
-            } else if (input.equals("5")) {
-                mainModel.getAllPrice();
-            } else if (input.equals("6")) {
-                controller.addNewWatch();
+    public void run() {
+        view.printMessage(MAIN_MENU_MESSAGE);
+        String input = view.input();
+        while (!input.equalsIgnoreCase(QUIT_COMMAND)) {
+            switch (input) {
+                case LIST_ALL_WATCHES_COMMAND:
+                    print(model.getAllWatch());
+                    break;
+                case SORT_BY_PRICE_COMMAND:
+                    print(model.sortByPrice());
+                    break;
+                case SORT_BY_COLOR_COMMAND:
+                    print(model.sortByColor());
+                    break;
+                case SORT_BY_DATE_COMMAND:
+                    print(model.sortByDate());
+                    break;
+                case GET_SUM_PRICE_COMMAND:
+                    view.printMessage(model.getAllPrice().toString());
+                    break;
+                case ADD_NEW_WATCHES_COMMAND:
+                    addNewWatch();
+                    break;
             }
-
-            input = scanner.nextLine();
+            input = view.input();
         }
+    }
+
+    private void addNewWatch() {
+        Color color = Color.valueOf(view.input().toUpperCase());
+        BigDecimal price = new BigDecimal(view.input());
+        LocalDate date = LocalDate.parse(view.input().trim());
+        Type type = Type.valueOf(view.input().toUpperCase());
+        model.addWatch(color, price, date, type);
+    }
+
+    private void print(List<Watch> list) {
+        list.forEach(x -> view.printMessage(x.toString()));
     }
 }
